@@ -1,5 +1,7 @@
 OpenStax On The Go
 =============================================
+Code based on https://github.com/hwangange/commute
+
 With this app, OpenStax textbooks are now...
 * PORTABLE. Listen to titles offline for free.
 * EASILY ACCESSIBLE. Navigate textbook content quickly.
