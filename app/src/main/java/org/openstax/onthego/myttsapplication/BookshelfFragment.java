@@ -1,8 +1,9 @@
-package com.interns.team3.openstax.myttsapplication;
+package org.openstax.onthego.myttsapplication;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -23,7 +24,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.TreeSet;
 
-public class BookshelfFragment extends Fragment {
+public class BookshelfFragment extends Fragment
+{
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";

@@ -1,4 +1,4 @@
-package com.interns.team3.openstax.myttsapplication.ssml;
+package org.openstax.onthego.myttsapplication.ssml;
 
 import java.util.function.Consumer;
 

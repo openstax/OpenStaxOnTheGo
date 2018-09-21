@@ -1,4 +1,4 @@
-package com.interns.team3.openstax.myttsapplication;
+package org.openstax.onthego.myttsapplication;
 
 public class TextAudioChunk {
     private int id;

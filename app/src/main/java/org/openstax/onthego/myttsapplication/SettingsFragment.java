@@ -1,4 +1,4 @@
-package com.interns.team3.openstax.myttsapplication;
+package org.openstax.onthego.myttsapplication;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -31,9 +31,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 
-import static com.interns.team3.openstax.myttsapplication.AudioClient.AmazonClient;
-import static com.interns.team3.openstax.myttsapplication.AudioClient.getGeneralClient;
-import static com.interns.team3.openstax.myttsapplication.AudioClient.listAllVoices;
+import static org.openstax.onthego.myttsapplication.AudioClient.AmazonClient;
+import static org.openstax.onthego.myttsapplication.AudioClient.getGeneralClient;
+import static org.openstax.onthego.myttsapplication.AudioClient.listAllVoices;
 
 
 /**

@@ -1,6 +1,6 @@
-package com.interns.team3.openstax.myttsapplication;
+package org.openstax.onthego.myttsapplication;
 
-import com.interns.team3.openstax.myttsapplication.ssml.SsmlBuilder;
+import org.openstax.onthego.myttsapplication.ssml.SsmlBuilder;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

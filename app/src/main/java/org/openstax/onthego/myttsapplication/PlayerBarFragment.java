@@ -1,4 +1,4 @@
-package com.interns.team3.openstax.myttsapplication;
+package org.openstax.onthego.myttsapplication;
 
 import android.content.Context;
 import android.media.AudioAttributes;
@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 //import android.speech.tts.TextToSpeech;
 

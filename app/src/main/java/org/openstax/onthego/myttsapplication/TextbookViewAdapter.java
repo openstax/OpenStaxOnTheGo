@@ -1,4 +1,4 @@
-package com.interns.team3.openstax.myttsapplication;
+package org.openstax.onthego.myttsapplication;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;

@@ -1,4 +1,4 @@
-package com.interns.team3.openstax.myttsapplication;
+package org.openstax.onthego.myttsapplication;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.interns.team3.openstax.myttsapplication.R;
+import org.openstax.onthego.myttsapplication.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

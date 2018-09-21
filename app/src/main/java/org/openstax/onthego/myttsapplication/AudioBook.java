@@ -1,9 +1,9 @@
-package com.interns.team3.openstax.myttsapplication;
+package org.openstax.onthego.myttsapplication;
 
 import android.content.Context;
 
-import com.interns.team3.openstax.myttsapplication.Content.Module;
-import com.interns.team3.openstax.myttsapplication.ssml.SsmlBuilder;
+import org.openstax.onthego.myttsapplication.Content.Module;
+import org.openstax.onthego.myttsapplication.ssml.SsmlBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
