@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/nested_scrollview"
-    tools:context=".BookshelfFragment">
+    tools:context="org.openstax.onthego.fragment.BookshelfFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package org.openstax.onthego.myttsapplication;
+package org.openstax.onthego.fragment;
 
 import android.content.Context;
 import android.net.Uri;
@@ -11,6 +11,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import org.openstax.onthego.activity.MainActivity;
+import org.openstax.onthego.R;
 
 
 /**

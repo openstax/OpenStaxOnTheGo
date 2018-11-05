@@ -1,4 +1,4 @@
-package org.openstax.onthego.myttsapplication;
+package org.openstax.onthego.adapter;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
@@ -8,6 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import org.openstax.onthego.R;
+import org.openstax.onthego.audio.TextAudioChunk;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package org.openstax.onthego.myttsapplication;
+package org.openstax.onthego.audio;
 
 public class TextAudioChunk {
     private int id;
@@ -8,7 +8,7 @@ public class TextAudioChunk {
     private boolean synthesized = false;
     private boolean selected;
 
-    TextAudioChunk() {
+    public TextAudioChunk() {
     }
 
     public TextAudioChunk(TextAudioChunk temp){

@@ -1,9 +1,9 @@
-package org.openstax.onthego.myttsapplication;
+package org.openstax.onthego.audio;
 
 import android.content.Context;
 
-import org.openstax.onthego.myttsapplication.Content.Module;
-import org.openstax.onthego.myttsapplication.ssml.SsmlBuilder;
+import org.openstax.onthego.data.Content.Module;
+import org.openstax.onthego.ssml.SsmlBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONException;

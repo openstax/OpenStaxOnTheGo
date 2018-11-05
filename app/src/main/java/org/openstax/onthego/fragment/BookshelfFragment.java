@@ -1,4 +1,4 @@
-package org.openstax.onthego.myttsapplication;
+package org.openstax.onthego.fragment;
 
 import android.content.Context;
 import android.net.Uri;
@@ -14,6 +14,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
+
+import org.openstax.onthego.activity.MainActivity;
+import org.openstax.onthego.audio.AudioBook;
+import org.openstax.onthego.R;
+
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionParameters;
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter;
 import io.github.luizgrp.sectionedrecyclerviewadapter.StatelessSection;

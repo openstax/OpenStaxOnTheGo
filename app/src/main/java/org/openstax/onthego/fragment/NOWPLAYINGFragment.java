@@ -1,4 +1,4 @@
-package org.openstax.onthego.myttsapplication;
+package org.openstax.onthego.fragment;
 
 import android.content.Context;
 import android.net.Uri;
@@ -15,6 +15,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+
+import org.openstax.onthego.activity.MainActivity;
+import org.openstax.onthego.R;
 
 
 /**

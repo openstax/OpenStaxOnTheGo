@@ -1,4 +1,4 @@
-package org.openstax.onthego.myttsapplication;
+package org.openstax.onthego.fragment;
 
 import android.content.Context;
 import android.media.AudioAttributes;
@@ -18,7 +18,8 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-//import android.speech.tts.TextToSpeech;
+import org.openstax.onthego.activity.MainActivity;
+import org.openstax.onthego.R;
 
 
 /**

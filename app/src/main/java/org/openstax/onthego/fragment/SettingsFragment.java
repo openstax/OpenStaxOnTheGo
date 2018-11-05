@@ -1,4 +1,4 @@
-package org.openstax.onthego.myttsapplication;
+package org.openstax.onthego.fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -27,13 +27,16 @@ import com.amazonaws.services.polly.model.OutputFormat;
 import com.amazonaws.services.polly.model.SynthesizeSpeechPresignRequest;
 import com.amazonaws.services.polly.model.Voice;
 
+import org.openstax.onthego.activity.MainActivity;
+import org.openstax.onthego.audio.AudioClient;
+import org.openstax.onthego.R;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 
-import static org.openstax.onthego.myttsapplication.AudioClient.AmazonClient;
-import static org.openstax.onthego.myttsapplication.AudioClient.getGeneralClient;
-import static org.openstax.onthego.myttsapplication.AudioClient.listAllVoices;
+import static org.openstax.onthego.audio.AudioClient.getGeneralClient;
+import static org.openstax.onthego.audio.AudioClient.listAllVoices;
 
 
 /**
@@ -56,7 +59,7 @@ public class SettingsFragment extends Fragment {
     private static final String KEY_VOICES = "Voices";
     private static final String KEY_SAMPLE_TEXT = "SampleText";
 
-    private AmazonClient generalClient;
+    private AudioClient.AmazonClient generalClient;
     private List<Voice> voices;
 
     private Switch themeSwitch;

@@ -1,4 +1,4 @@
-package org.openstax.onthego.myttsapplication;
+package org.openstax.onthego.fragment;
 
 import android.animation.LayoutTransition;
 import android.net.Uri;
@@ -16,13 +16,16 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.openstax.onthego.audio.AudioBook;
+import org.openstax.onthego.data.Content;
+import org.openstax.onthego.adapter.ContentAdapter;
+import org.openstax.onthego.activity.MainActivity;
+import org.openstax.onthego.R;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
-//import static com.interns.team3.openstax.myttsapplication.demo.*;
 
 
 public class TableOfContentsFragment extends Fragment {
@@ -220,22 +223,9 @@ public class TableOfContentsFragment extends Fragment {
                     Picasso.with(getContext()).load(drawable_id).into(bookImg);
                 }
 
-            /*loading.animate()
-                    .translationY(loading.getHeight())
-                    .alpha(0.0f)
-                    .setDuration(300)
-                    .setListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            super.onAnimationEnd(animation);
-                            loading.setVisibility(View.GONE);
 
-                        }
-                    }); */
                 container.removeView(loading);
                 container.addView(doneLoading);
-                //loading.setVisibility(View.GONE);
-                //doneLoading.setVisibility(View.VISIBLE);
             }
         }
     }
