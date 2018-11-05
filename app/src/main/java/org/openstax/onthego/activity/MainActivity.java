@@ -1,4 +1,4 @@
-package org.openstax.onthego.myttsapplication;
+package org.openstax.onthego.activity;
 
 
 import android.content.SharedPreferences;
@@ -21,9 +21,20 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
+
+import org.openstax.onthego.fragment.BookshelfFragment;
+import org.openstax.onthego.fragment.HOMEFragment;
+import org.openstax.onthego.fragment.LIBRARYFragment;
+import org.openstax.onthego.fragment.NOWPLAYINGFragment;
+import org.openstax.onthego.fragment.PlayerBarFragment;
+import org.openstax.onthego.fragment.SettingsFragment;
+import org.openstax.onthego.fragment.TableOfContentsFragment;
+import org.openstax.onthego.fragment.TextbookViewFragment;
+import org.openstax.onthego.R;
+import org.openstax.onthego.audio.TextAudioChunk;
+
 import nl.bravobit.ffmpeg.ExecuteBinaryResponseHandler;
 import nl.bravobit.ffmpeg.FFmpeg;
 
@@ -36,8 +47,6 @@ public class MainActivity extends AppCompatActivity implements HOMEFragment.OnFr
     private static final String TAG = "MainActivity";
 
     private SlidingUpPanelLayout mLayout;
-    private LinearLayout dragView;
-    private TabLayout tabLayout;
     private TabLayout.Tab textbookViewTab, nowPlayingTab;
 
     private TextView dragViewText;
@@ -56,16 +65,7 @@ public class MainActivity extends AppCompatActivity implements HOMEFragment.OnFr
     public Fragment activeFragment;
 
 
-    public int /*uiOptions= View.SYSTEM_UI_FLAG_IMMERSIVE
-            // set the content to appear under system bars
-            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-            // hide nav bar
-            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-            | View.SYSTEM_UI_FLAG_FULLSCREEN; */
-
-    uiOptions =View.SYSTEM_UI_FLAG_FULLSCREEN;
+    public int uiOptions =View.SYSTEM_UI_FLAG_FULLSCREEN;
 
 
     @Override
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements HOMEFragment.OnFr
         });
 
 
-        dragView = findViewById(R.id.dragView);
+        //LinearLayout dragView = findViewById(R.id.dragView);
         dragViewText = findViewById(R.id.dragViewText);
         dragViewPlayButton = findViewById(R.id.dragViewPlayButton);
         dragViewPlayButton.setOnClickListener(v -> playerBarFragment.handlePlayButtonClick());
@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements HOMEFragment.OnFr
         mLayout.setPanelState(SlidingUpPanelLayout.PanelState.HIDDEN);
 
         // Tabs
-        tabLayout = findViewById(R.id.tabLayout);
+        TabLayout tabLayout = findViewById(R.id.tabLayout);
         textbookViewTab = tabLayout.newTab();
         textbookViewTab.setText("Text");
         nowPlayingTab = tabLayout.newTab();
@@ -206,10 +206,11 @@ public class MainActivity extends AppCompatActivity implements HOMEFragment.OnFr
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            FragmentTransaction ft = fragmentManager.beginTransaction();
             switch (item.getItemId()) {
                 case R.id.navigation_home: {
-                    Log.i("onNavigationItemSelected", "Home");
-                    FragmentTransaction ft = fragmentManager.beginTransaction();
+                    Log.d("onNavigationItemSelected", "Home");
+                    //FragmentTransaction ft = fragmentManager.beginTransaction();
                     ft.replace(R.id.fragmentContainer, homeFragment, "Home");
                     ft.addToBackStack(null); // allow user to go back
                     ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
@@ -217,8 +218,8 @@ public class MainActivity extends AppCompatActivity implements HOMEFragment.OnFr
                     return true;
                 }
                 case R.id.navigation_library: {
-                    Log.i("onNavigationItemSelected", "Library");
-                    FragmentTransaction ft = fragmentManager.beginTransaction();
+                    Log.d("onNavigationItemSelected", "Library");
+                    //FragmentTransaction ft = fragmentManager.beginTransaction();
                     ft.replace(R.id.fragmentContainer, libraryFragment, "Library");
                     //ft.addToBackStack(null); // allow user to go back
                     ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
@@ -226,8 +227,8 @@ public class MainActivity extends AppCompatActivity implements HOMEFragment.OnFr
                     return true;
                 }
                 case R.id.navigation_settings: {
-                    Log.i("onNavigationItemSelected", "Settings");
-                    FragmentTransaction ft = fragmentManager.beginTransaction();
+                    Log.d("onNavigationItemSelected", "Settings");
+                    //FragmentTransaction ft = fragmentManager.beginTransaction();
                     ft.replace(R.id.fragmentContainer, settingsFragment, "Settings");
                     //ft.addToBackStack(null); // allow user to go back
                     ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
@@ -240,7 +241,7 @@ public class MainActivity extends AppCompatActivity implements HOMEFragment.OnFr
     };
 
     public void onFragmentInteraction(Uri uri){
-        Log.i("onFragmentInteraction", uri.toString());
+        Log.d("onFragmentInteraction", uri.toString());
     }
 
     @Override
@@ -320,8 +321,8 @@ public class MainActivity extends AppCompatActivity implements HOMEFragment.OnFr
 
     public void playEntireModule(String bookTitle, String modID, String modTitle){
 
-        Log.i("playEntireModule", "is nowPlayingFragment null? "+ String.valueOf(nowPlayingFragment == null));
-        Log.i("playEntireModule", "Module Title parameter: __" + modTitle + "__!");
+        Log.d("playEntireModule", "is nowPlayingFragment null? "+ String.valueOf(nowPlayingFragment == null));
+        Log.d("playEntireModule", "Module Title parameter: __" + modTitle + "__!");
 
         dragViewText.setText(Html.fromHtml("<b>"+modTitle+"</b><br/>"+bookTitle, Html.FROM_HTML_MODE_COMPACT));
 
@@ -329,7 +330,7 @@ public class MainActivity extends AppCompatActivity implements HOMEFragment.OnFr
         if(nowPlayingFragment != null)
         {
             String s = nowPlayingFragment.getModule();
-            Log.i("getModule() results", s);
+            Log.d("getModule() results", s);
         }
 
         if(!nowPlayingFragment.getModule().equals(modID))
@@ -424,9 +425,9 @@ public class MainActivity extends AppCompatActivity implements HOMEFragment.OnFr
             output+=s+"\t";
         }
         newFaves.remove(null);
-        Log.i("in NewFaves", output);
+        Log.d("in NewFaves", output);
         editor.putStringSet("favorites", newFaves); // hopefully this replaces the old favorites set
-        editor.commit();
+        editor.apply();
     }
 
     public boolean isEntireModuleAvailable(String bookTitle, String modId){
@@ -455,7 +456,7 @@ public class MainActivity extends AppCompatActivity implements HOMEFragment.OnFr
         try {
             download(output);
         } catch (Exception e) {
-            Log.i("IOException", "Downloading entire module");
+            Log.e(TAG, "Downloading entire module: " , e);
         }
 
         SharedPreferences sharedPreferences = this.getSharedPreferences("library", 0);
@@ -474,8 +475,11 @@ public class MainActivity extends AppCompatActivity implements HOMEFragment.OnFr
         final StringBuilder s = new StringBuilder();
 
         dataSet.forEach(chunk -> {
-            String uri = chunk.getAudioFile();
-            s.append(String.format("-i %s ", uri));
+            if(chunk != null)
+            {
+                String uri = chunk.getAudioFile();
+                s.append(String.format("-i %s ", uri));
+            }
         });
 
         s.append("-filter_complex ");
@@ -488,7 +492,7 @@ public class MainActivity extends AppCompatActivity implements HOMEFragment.OnFr
 
         // https://trac.ffmpeg.org/wiki/Concatenate
         // String s = "-i " + uris[0] + " -i " + uris[1] + " -filter_complex [0:0][1:0]concat=n=2:v=0:a=1[out] -map [out] " + output;
-        Log.i("THE WHOLE THING", s.toString());
+        Log.d("THE WHOLE THING", s.toString());
 
 
         String[] cmd = s.toString().split(" ");
@@ -497,11 +501,11 @@ public class MainActivity extends AppCompatActivity implements HOMEFragment.OnFr
         FFmpeg ffmpeg = FFmpeg.getInstance(this);
         if (ffmpeg.isSupported()) {
             // ffmpeg is supported
-            Log.i("FFmpeg is supported", "Yay!");
+            Log.d("FFmpeg is supported", "Yay!");
             //if(makeDownloadAvailable) download.setEnabled(true);
         } else {
             // ffmpeg is not supported
-            Log.i("FFmpeg is not supported", "Darn ;(");
+            Log.d("FFmpeg is not supported", "Darn ;(");
         }
 
 
@@ -609,7 +613,7 @@ public class MainActivity extends AppCompatActivity implements HOMEFragment.OnFr
             SharedPreferences sharedPreferences = getSharedPreferences("current session", 0);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("tag", tag);
-            editor.commit();
+            editor.apply();
         }
         super.onDestroy();
     }

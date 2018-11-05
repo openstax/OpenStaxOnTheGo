@@ -1,6 +1,7 @@
-package org.openstax.onthego.myttsapplication;
+package org.openstax.onthego.data;
 
-import org.openstax.onthego.myttsapplication.ssml.SsmlBuilder;
+import org.openstax.onthego.audio.TextAudioChunk;
+import org.openstax.onthego.ssml.SsmlBuilder;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -507,7 +508,7 @@ public interface Content {
          * Builds a list of ssml strings of module content.
          * @return String List representing ssml
          */
-        List<String> buildModuleSSML() throws JSONException {
+        public List<String> buildModuleSSML() throws JSONException {
             List<String> ssmlList = new ArrayList<>();
             buildOpeningSSML(ssmlList);
             buildReadSecSSMLArray(ssmlList);

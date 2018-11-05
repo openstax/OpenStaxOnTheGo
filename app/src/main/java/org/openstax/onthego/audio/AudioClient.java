@@ -1,4 +1,4 @@
-package org.openstax.onthego.myttsapplication;
+package org.openstax.onthego.audio;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -14,6 +14,9 @@ import com.amazonaws.services.polly.model.DescribeVoicesResult;
 import com.amazonaws.services.polly.model.OutputFormat;
 import com.amazonaws.services.polly.model.SynthesizeSpeechPresignRequest;
 import com.amazonaws.services.polly.model.Voice;
+
+import org.openstax.onthego.activity.MainActivity;
+import org.openstax.onthego.fragment.TextbookViewFragment;
 
 import java.io.File;
 import java.io.FileInputStream;

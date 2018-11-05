@@ -1,4 +1,4 @@
-package org.openstax.onthego.myttsapplication;
+package org.openstax.onthego.fragment;
 
 import android.Manifest;
 import android.animation.Animator;
@@ -34,6 +34,13 @@ import org.apache.commons.text.WordUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.jsoup.nodes.Document;
+import org.openstax.onthego.audio.AudioBook;
+import org.openstax.onthego.audio.AudioClient;
+import org.openstax.onthego.data.Content;
+import org.openstax.onthego.activity.MainActivity;
+import org.openstax.onthego.R;
+import org.openstax.onthego.audio.TextAudioChunk;
+import org.openstax.onthego.adapter.TextbookViewAdapter;
 
 import java.io.File;
 import java.util.ArrayList;
